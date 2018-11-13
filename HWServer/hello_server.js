@@ -18,8 +18,18 @@ const http = require('http');
 const server = http.createServer((request, response) => {
     // Leitura do cabeçalho. Neste caso, fará leitura de dados html
     response.writeHead(200, {'Content-Type': 'text/html'});
+    if(request.url === '/') {
+        response.write('<h1>Página Principal</h1>');
+    }
+    else if(request.url === '/bemvindo') {
+        response.write('<h1>Bem-vindo!</h1>');
+    }
+    else {
+        response.write('<h1>Página não encontrada...</h1');
+    }
     // Escreve na tela
-    response.write('<h1>Hello World!</h1>');
+    // response.write('<h1>Hello World!</h1>');
+    response.end();
 });
 
 // Indico que o servidor, assim que instanciado, será ouvido na porta 3000
