@@ -9,4 +9,6 @@ const server = http.createServer((request, response) => {
 });
 
 // Indico que o servidor, assim que instanciado, será ouvido na porta 3000
-server.listen(3000);
+server.listen(3000, () => {
+    console.log('Servidor rodando na porta 3000...');
+});
